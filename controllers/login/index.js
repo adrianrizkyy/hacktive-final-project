@@ -1,6 +1,6 @@
 const { user } = require('../../models');
 const Sequelize = require('sequelize');
-const { comparePassword, hashPassword } = require('../../auth/bcrypt');
+const { comparePassword } = require('../../auth/bcrypt');
 const { generateToken } = require('../../auth/jwt');
 
 class loginController {

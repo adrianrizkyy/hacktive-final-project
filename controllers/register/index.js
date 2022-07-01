@@ -1,10 +1,11 @@
 const { user } = require('../../models');
+const { hashPassword } = require('../../auth/bcrypt');
 
 class registerController {
 
     static register(req, res) {
         const { email, password } = req.body;
-        let status = false;
+        let status = true;
         let message = [];
         
         if (email == "") {
@@ -18,7 +19,12 @@ class registerController {
         }
 
         if (status) {
-            user.create({ email, password })
+            const payload = {
+                email: email,
+                password: hashPassword(password)
+            };
+            
+            user.create(payload)
                 .then((data) => {
                     message.push("Registrasi Berhasil");
                     res.status(200).json({ status: status, message: message, data:data });

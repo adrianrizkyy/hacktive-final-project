@@ -1,9 +1,8 @@
-const { user } = require('../../models');
-const { hashPassword } = require('../../auth/bcrypt');
+const { reflection } = require('../../models');
 
-class userController {
+class reflectionController {
 
-    static get_users(req, res) {
+    static get_reflections(req, res) {
         let status = true;
         let message = [];
 
@@ -12,7 +11,7 @@ class userController {
             message.push("Email tidak boleh kosong!");
         }
 
-        user.findAll()
+        reflection.findAll({ where: { owner_id: req.token.email } })
             .then((data) => {
                 status = true;
                 message.push("Berhasil Mengambil Data!");
@@ -25,67 +24,45 @@ class userController {
             });
     }
 
-    static create_user(req, res) {
-        const { email, password } = req.body;
+    static create_reflection(req, res) {
+        const { success, low_point, take_away } = req.body;
         let status = true;
         let message = [];
 
-        if (email == "") {
+        if (success == "") {
             status = false;
-            message.push("Email tidak boleh kosong!");
+            message.push("Success tidak boleh kosong!");
         }
 
-        if (password == "") {
+        if (low_point == "") {
             status = false;
-            message.push("Password tidak boleh kosong!");
+            message.push("Low Point tidak boleh kosong!");
         }
 
-        if (status) {
-            const payload = {
-                email: email,
-                password: hashPassword(password)
-            };
-
-            user.create(payload)
-                .then((data) => {
-                    message.push("Create User Berhasil");
-                    res.status(200).json({ status: status, message: message, data: data });
-                })
-                .catch((err) => {
-                    status = false;
-                    message.push("Terjadi Kesalahanpada Koneksi Database!");
-                    res.status(400).json({ status: status, message: message, err: err });
-                });
+        if (take_away == "") {
+            status = false;
+            message.push("Take Away tidak boleh kosong!");
         }
-        else {
-            res.status(400).json({ status: status, message: message });
-        }
-    }
-
-    static update_password(req, res) {
-        const { email, password } = req.body;
-        let status = true;
-        let message = [];
 
         if (req.token.email == "") {
             status = false;
-            message.push("Email tidak boleh kosong!");
-        }
-
-        if (password == "") {
-            status = false;
-            message.push("Password tidak boleh kosong!");
+            message.push("Owner Id tidak boleh kosong!");
         }
 
         if (status) {
             const payload = {
-                password: hashPassword(password)
+                success: success,
+                low_point: low_point,
+                take_away: take_away,
+                owner_id: req.token.email,
+                createdAt: new Date(),
+                updatedAt: new Date(),
             };
 
-            user.update(payload, { where: { email: req.token.email } })
+            reflection.create(payload)
                 .then((data) => {
-                    message.push("Update Password Berhasil");
-                    res.status(200).json({ status: status, message: message, data: data });
+                    message.push("Create reflection Berhasil");
+                    res.status(200).json({ status: status, message: message, data: payload });
                 })
                 .catch((err) => {
                     status = false;
@@ -98,7 +75,60 @@ class userController {
         }
     }
 
-    static delete_user(req, res) {
+    static update_reflection(req, res) {
+        const { success, low_point, take_away } = req.body;
+        const id = req.params.id;
+        
+        let status = true;
+        let message = [];
+
+        if (success == "") {
+            status = false;
+            message.push("Success tidak boleh kosong!");
+        }
+
+        if (low_point == "") {
+            status = false;
+            message.push("Low Point tidak boleh kosong!");
+        }
+
+        if (take_away == "") {
+            status = false;
+            message.push("Take Away tidak boleh kosong!");
+        }
+
+        if (req.token.email == "") {
+            status = false;
+            message.push("Owner Id tidak boleh kosong!");
+        }
+
+        if (status) {
+            const payload = {
+                success: success,
+                low_point: low_point,
+                take_away: take_away,
+                owner_id: req.token.email,
+                updatedAt: new Date(),
+            };
+            console.log(payload);
+            reflection.update(payload, {where: {id: id, owner_id: req.token.email}})
+                .then((data) => {
+                    message.push("Update reflection Berhasil");
+                    res.status(200).json({ status: status, message: message, data: payload });
+                })
+                .catch((err) => {
+                    status = false;
+                    message.push("Terjadi Kesalahanpada Koneksi Database!");
+                    res.status(400).json({ status: status, message: message, err: err });
+                });
+        }
+        else {
+            res.status(400).json({ status: status, message: message });
+        }
+    }
+  
+
+    static delete_reflection(req, res) {
         const id = req.params.id;
         let status = true;
         let message = [];
@@ -108,9 +138,13 @@ class userController {
             message.push("Id tidak boleh kosong!");
         }
 
-        if (status) {
+        if (req.token.email == "") {
+            status = false;
+            message.push("Owner Id tidak boleh kosong!");
+        }
 
-            user.destroy({ where: { id: id } })
+        if (status) {
+            reflection.destroy({ where: { id: id, owner_id: req.token.email } })
                 .then((data) => {
                     message.push("Delete Data Berhasil");
                     res.status(200).json({ status: status, message: message, data: data });
@@ -127,4 +161,4 @@ class userController {
     }
 }
 
-module.exports = userController;
+module.exports = reflectionController;
