@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "11a3b3d6-e1b5-4dd5-8d80-397dda45436e",
+		"name": "Final Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20298931"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "asd",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"adrian@gmail.com\",\r\n    \"password\": \"adrian\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/login/do_login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"do_login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get_users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/get_users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"get_users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"adrian\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/update_password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"update_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"adrian@gmail.com\",\r\n    \"password\": \"adrian\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/create_user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"create_user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/delete_user/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"delete_user",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reflection",
+			"item": [
+				{
+					"name": "get_reflection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ4MmpTMjJucjJ6cHBwdFh0bDhnZC5lRUQ1Q08wMzdhN25xRlBrQmROWm1PUWJEM2pYOUZhSyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6NTY6NDYuMTAyWiJ9LCJpYXQiOjE2NTY2NjE1NDYsImV4cCI6MTY1Njc0Nzk0Nn0.pMrYhCaMccxuwnrWI3pAVvFGfmfiCmcD3zDAeSuuce8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflection/get_reflections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflection",
+								"get_reflections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_reflection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"success\": \"Success Adrian\",\r\n    \"low_point\": \"Low Point Adrian\",\r\n    \"take_away\": \"Take Away Adrian\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflection/create_reflection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflection",
+								"create_reflection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_reflection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"success\": \"Update Success Adrian\",\r\n    \"low_point\": \"Update Low Point Adrian\",\r\n    \"take_away\": \"Update Take Away Adrian\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflection/update_reflection/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflection",
+								"update_reflection",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_reflection",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJlbWFpbCI6ImFkcmlhbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCREdU5JYTdxdGovQmJaaVlSOWlMMmRPM2hoLzJqZ2tSQW1xZ3dIREtPZFYuQ1dpV2R2czVRVyIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiIsInVwZGF0ZWRBdCI6IjIwMjItMDctMDFUMDI6MDM6MjUuNDc4WiJ9LCJpYXQiOjE2NTY2NDExNzUsImV4cCI6MTY1NjcyNzU3NX0.pYf0Hd34UjTkSCeKlgraYK_eKx-3vO8qFcnhf7OceMc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reflection/delete_reflection/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reflection",
+								"delete_reflection",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"adrian@gmail.com\",\r\n    \"password\": \"adrian\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
